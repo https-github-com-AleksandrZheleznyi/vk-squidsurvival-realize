@@ -1,11 +1,10 @@
-let progressText = null;
-
+let filledProgress = null;
 function UnityProgress(progress)
 {
-  if (!progressText)
+  if(!filledProgress)
   {
-    progressText = document.getElementById("loader-area__percent");
-    progressText.style.display = "block";
+      filledProgress = document.getElementById("loader-progress__filled");
+      filledProgress.style.display = "block";
   }
 
   setLoaderProgressTo(progress);
@@ -20,7 +19,15 @@ function UnityProgress(progress)
 // value - 0 to 1
 function setLoaderProgressTo(value)
 {
-  progressText.innerHTML = (value * 100).toFixed() + "%";
+  filledProgress.animate(
+      [
+        { width: (value * 100) + "%" }
+      ],
+      {
+        duration: 300,
+        fill: "forwards"
+      }
+  );
 }
 
 window.onlanguagechange = function(event) 
@@ -30,13 +37,11 @@ window.onlanguagechange = function(event)
 
 window.addEventListener('load', (event) => {
   loadLoaderLocalization();
+  setLoaderProgressTo(0);
 });
 
 function loadLoaderLocalization() 
 {
   const label = document.getElementById("loader-area__label");
-  const percent = document.getElementById("loader-area__percent");
-  label.innerHTML =  GetLoadingScreenLocalization().value;
-  let percentage = 0;
-  percent.innerHTML = percentage + "%";
+  label.innerHTML = GetLoadingScreenLocalization().value;
 }
