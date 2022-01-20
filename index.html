@@ -33,16 +33,16 @@
     <div id="vk_ads_bottom_banner" style="width:100%;height:10%;max-height:120px;position:absolute;bottom: 10%;z-index: 10000;display: none;overflow: hidden;background-color: rgba(222, 222, 222, 0.183);"></div>              <div id="yandex_bottom_banner" style="width:100%;height:10%;max-height:120px;position:absolute;bottom: 00%;z-index: 10000;display: none;overflow: hidden;"></div>
     <div id="loader">
       <div id="loader-area">
-          <span id="loader-area__label" style="color: #FFE98FFF"></span>
-          <span id="loader-area__percent" style="color: #D9B303FF"></span>
+          <span id="loader-area__label" style="color: #FFFFFFFF"></span>
+          <span id="loader-area__percent" style="color: [REPLACE_LOADER_AREA_PERCENT]"></span>
       </div>
     </div>
     <script>
       const buildUrl = "Build";
       const config = {
-        dataUrl: buildUrl + "/Source.data.br",
-        frameworkUrl: buildUrl + "/Source.framework.js.br",
-        codeUrl: buildUrl + "/Source.wasm.br",
+        dataUrl: buildUrl + "/Source.data.unityweb",
+        frameworkUrl: buildUrl + "/Source.framework.js.unityweb",
+        codeUrl: buildUrl + "/Source.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "SoParty",
         productName: "Squid Survival",
