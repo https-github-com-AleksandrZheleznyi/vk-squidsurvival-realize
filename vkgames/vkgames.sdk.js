@@ -18,7 +18,7 @@ async function BridgeShowInterstitialAd(request)
         request.jsonData = 'interstitial';
     }
     try {
-        var data = await vkBridge.send('VKWebAppShowNativeAds', { ad_format: request.jsonData });
+        var data = await vkBridge.send('VKWebAppShowNativeAds', { 'ad_format': request.jsonData });
         SendSuccessMessage(request);
         console.log('-Success show VKBridge Intestitial Ad! Data result: '+data.result);
     } catch (err) {
@@ -46,14 +46,14 @@ async function BridgeShowRewardVideoAd(request)
 
 function BridgeShowBannerAd(request)
 {
+    console.log('Show banner: '+request.jsonData);
     setElementByIdStyleType(request.jsonData, 'block');
     SendSuccessMessage(request);
-    // setElementByIdStyleType(banner._position, 'block');
-    // setElementByIdStyleType(banner._position, 'none');
 }
 
 function BridgeHideBannerAd(request)
 {
+    console.log('Hide banner: '+request.jsonData);
     setElementByIdStyleType(request.jsonData, 'none');
     SendSuccessMessage(request);
 }
@@ -129,7 +129,7 @@ async function BridgeSendPostOnWall(request)
         await vkBridge.send('VKWebAppShowWallPostBox', JSON.parse(request.jsonData));
         SendSuccessMessage(request);
     } catch (e) {
-        SendFailedMessage(request, JSON.parse(e));
+        SendFailedMessage(request, e);
     }
 }
 

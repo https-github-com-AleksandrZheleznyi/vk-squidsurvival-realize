@@ -1,7 +1,7 @@
 var IsMobilePlatform = false;
 
 let cachedConfigFile = null;
-let configUrl = 'https://spgames.s3.ap-south-1.amazonaws.com/squid-race/vkgames/0.3/RemoteConfig.json';
+let configUrl = 'https://spgames.s3.ap-south-1.amazonaws.com/squid-survival/vkgames/0.1.1/RemoteConfig.json';
 
 function LoadConfig(successCallback, errorCallback)
 {
