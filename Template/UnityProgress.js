@@ -7,7 +7,7 @@ function UnityProgress(progress)
       filledProgress.style.display = "block";
   }
 
-  setLoaderProgressTo(progress);
+  setLoaderProgressTo(progress, 300);
 
   if (progress == 1)
   {
@@ -17,17 +17,20 @@ function UnityProgress(progress)
 }
 
 // value - 0 to 1
-function setLoaderProgressTo(value)
+function setLoaderProgressTo(value, duration)
 {
-  filledProgress.animate(
-      [
-        { width: (value * 100) + "%" }
-      ],
-      {
-        duration: 300,
-        fill: "forwards"
-      }
-  );
+    if(duration == null)
+        duration = 300;
+    
+    filledProgress.animate(
+        [
+            { width: (value * 100) + "%" }
+        ],
+        {
+            duration: duration,
+            fill: "forwards"
+        }
+    );
 }
 
 window.onlanguagechange = function(event) 
@@ -37,7 +40,7 @@ window.onlanguagechange = function(event)
 
 window.addEventListener('load', (event) => {
   loadLoaderLocalization();
-  setLoaderProgressTo(0);
+  setLoaderProgressTo(0, 0);
 });
 
 function loadLoaderLocalization() 
